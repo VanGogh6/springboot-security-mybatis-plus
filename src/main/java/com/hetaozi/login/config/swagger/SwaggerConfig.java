@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * @author 吴帆
  * @date 2020/9/10 0010 20:50
- * date 2020/9/10 21:39  存在问题：访问localhost:81/swagger-ui.html需要登陆
+ * date 2020/9/10 21:39  存在问题：整合spring-security后访问localhost:81/swagger-ui.html需要登陆，原因是security拦截了sagger的默认配置
  */
 @Slf4j
 @Configuration
