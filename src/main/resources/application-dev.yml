@@ -1,0 +1,25 @@
+server:
+  port: 81
+spring:
+  datasource:
+    dynamic:
+      datasource: #多数据源的配置
+        master: #主数据源
+          driver-class-name: com.mysql.jdbc.Driver
+          password: security
+          url: jdbc:mysql://127.0.0.1:3306/security?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+          username: security
+        slave_1: #从数据源slave_1
+          driver-class-name: com.mysql.jdbc.Driver
+          password: security2
+          url: jdbc:mysql://127.0.0.1:3306/security2?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+          username: security2
+        slave_2: #从数据源slave_2
+          driver-class-name: com.mysql.jdbc.Driver
+          password: security3
+          url: jdbc:mysql://127.0.0.1:3306/security3?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+          username: security3
+      primary: master #默认数据源
+      strict: false
+swagger: #swagger是否开启
+  enable: true
