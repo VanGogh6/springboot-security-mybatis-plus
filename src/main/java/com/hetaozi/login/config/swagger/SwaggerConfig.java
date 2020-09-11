@@ -31,7 +31,8 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .enable(enableSwagger)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.hetaozi.login.controller"))//添加扫描包
+                //添加扫描包
+                .apis(RequestHandlerSelectors.basePackage("com.hetaozi.login.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
