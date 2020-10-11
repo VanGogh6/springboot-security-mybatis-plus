@@ -23,3 +23,8 @@ spring:
       strict: false
 swagger: #swagger是否开启
   enable: true
+
+mybatis-plus:
+  mapper-locations: /mapping/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

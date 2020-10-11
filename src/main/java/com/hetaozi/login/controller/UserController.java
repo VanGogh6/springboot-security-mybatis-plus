@@ -4,11 +4,13 @@ import cn.hutool.crypto.SecureUtil;
 import com.hetaozi.login.entity.SysUser;
 import com.hetaozi.login.service.SysUserService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author 吴帆
@@ -19,11 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "用户信息管理")
 public class UserController {
 
-    @Autowired
+    @Resource
     private SysUserService sysUserServiceImpl;
 
+    //@ApiOperation(value = "添加用户")
     @PostMapping("/insert")
-    @ApiOperation(value = "添加用户")
     public String insertUser(SysUser user) {
         log.info("未加密的用户:" + user);
         String userPassword = user.getPassword();
@@ -33,5 +35,10 @@ public class UserController {
         log.info("加密的用户:" + user);
         boolean save = sysUserServiceImpl.save(user);
         return "ok" + save;
+    }
+
+    @GetMapping("/getUser")
+    public List<SysUser> getUserAll() {
+        return sysUserServiceImpl.list();
     }
 }
